@@ -21,12 +21,21 @@ class Account:
         # with open(...) # can't use filepath as that's only in the init method!
         # one way would be
         # def commit(self,path):
-        # another way
+        # another way:
         # let's do a "instance variable" instead, in the init, which stores in Self..
         # self.filepath=filepath is defined in init (line 5)
         with open(self.filepath, 'w') as file:
             file.write(str(self.balance))
-# create vars to store account
+
+
+# fun with inheritance and subclasses:  -------------------------------------------
+class Checking:
+    def __init__(self,filepath):
+        Account.__init__(self,filepath) #inherit everything from Account class.
+
+checking=Checking("accounts/balance.txt") # not sure why this is needed.
+
+# create vars to store account --------------------------------------------------------
 account=Account("accounts/balance.txt") #var is the result of a class
 # for some reason we must declare enclosing folder here or it won't work.
 print(account.balance) #dot notation points to the attribute of the object 'account'.
