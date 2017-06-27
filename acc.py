@@ -65,7 +65,7 @@ print("before adjustment.")
 # account.withdraw(100)
 # print(account.balance)
 # account.commit() # pass this to commit data.
-checking.deposit(10)
+checking.transfer(10)
 print("after adjustment:")
 print(checking.balance)
 account.commit()
