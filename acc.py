@@ -29,11 +29,14 @@ class Account:
 
 
 # fun with inheritance and subclasses:  -------------------------------------------
-class Checking:
+class Checking(Account):
     def __init__(self,filepath):
         Account.__init__(self,filepath) #inherit everything from Account class.
 
 checking=Checking("accounts/balance.txt") # not sure why this is needed.
+# checking.deposit(10) doesn't work because checking has no attribute "deposit"
+# this is because inheritance isn't working yet.
+# change class to Checking(Account) which defines the base class for inheritance.
 
 # create vars to store account --------------------------------------------------------
 account=Account("accounts/balance.txt") #var is the result of a class
@@ -44,3 +47,6 @@ print(account.balance) #dot notation points to the attribute of the object 'acco
 account.withdraw(100)
 print(account.balance)
 account.commit() # pass this to commit data.
+checking.deposit(10)
+print(account.balance)
+account.commit()
